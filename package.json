@@ -1,0 +1,21 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "0.0.1",
+  "description": "Modern webapp with webpack",
+  "main": "app/main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build/",
+    "deploy": "NODE_ENV=production webpack -p"
+  },
+  "author": "Kai Yu Hsu",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.10.1",
+    "jsx-loader": "^0.13.1",
+    "style-loader": "^0.10.2",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.8.4",
+    "webpack-dev-server": "^1.6.6"
+  },
+  "dependencies": {}
+}

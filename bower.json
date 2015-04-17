@@ -1,0 +1,21 @@
+{
+  "name": "webpack",
+  "version": "0.0.0",
+  "authors": [
+    "Kaiyu Hsu <im.kaiyu@gmail.com>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.1"
+  }
+}
