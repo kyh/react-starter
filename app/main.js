@@ -1,4 +1,4 @@
-require('./main.css');
+require('./assets/main.less');
 
 var React = require('react');
 var Home = require('./home/Home.js');
