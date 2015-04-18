@@ -21,18 +21,12 @@
      alias: {}
    },
    module: {
-     noParse: [],
-     loaders: [{
-       test: /\.js$/,
-       loader: 'jsx-loader',
-       exclude: [bower_dir, node_modules_dir]
-     }, {
-       test: /\.css$/,
-       loader: 'style-loader!css-loader'
-     }, {
-       test: /\.(woff|png)$/,
-       loader: 'url-loader?limit=100000'
-     }]
+    noParse: [],
+    loaders: [
+      { test: /\.js$/, loader: 'jsx-loader', exclude: [bower_dir, node_modules_dir]},
+      { test: /\.less$/, loader: 'style!css!less' },
+      { test: /\.(woff|png)$/, loader: 'url-loader?limit=100000'}
+    ]
    },
    plugins: [
      new webpack.optimize.CommonsChunkPlugin('app', null, false)
