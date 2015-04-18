@@ -1,5 +1,6 @@
-webpack-example
+Webpack-boilerplate
 ===============
+Bootstrap your React app using webpack
 
 ### How to use
 
