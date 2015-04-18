@@ -23,7 +23,7 @@
    module: {
     noParse: [],
     loaders: [
-      { test: /\.js$/, loader: 'jsx-loader', exclude: [bower_dir, node_modules_dir]},
+      { test: /\.js$/, loader: 'jsx-loader?harmony', exclude: [bower_dir, node_modules_dir]},
       { test: /\.less$/, loader: 'style!css!less' },
       { test: /\.(woff|png)$/, loader: 'url-loader?limit=100000'}
     ]

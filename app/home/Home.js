@@ -1,7 +1,7 @@
 var React = require('react');
 
 var Component = React.createClass({
-  render: function () {
+  render: () => {
     return (
       <h1>Hello world!</h1>
     );
