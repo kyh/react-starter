@@ -1,11 +1,11 @@
 var React = require('react');
 
-class Component extends React.Component {
-  render() {
+var Component = React.createClass({
+  render: function () {
     return (
-      <h1>Hello world!</h1>
+      <h1>Hello wooorld!</h1>
     );
   }
-}
+});
 
 module.exports = Component;
