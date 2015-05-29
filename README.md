@@ -1,4 +1,4 @@
-Webpack-boilerplate
+webpack-boilerplate
 ===============
 Bootstrap your React app using webpack
 
