@@ -1,17 +1,29 @@
-webpack-boilerplate
+react-starter
 ===============
-Bootstrap your React app using webpack
+Bootstrap your React app
 
-### How to use
+## Usage
+The following commands are available in your project:
+```bash
+# Start for development
+npm start # or
+npm run serve
 
-- `npm install`
-- `bower install`
-- `npm run dev` - localhost:8080
-- `npm run deploy` - deploy to dist folder
+# Start the dev-server with the dist version
+npm run serve:dist
 
-### Includes
-- React (JSX, ES6)
-- LESS
+# Just build the dist version and copy static files
+npm run dist
 
-### Todo
-Need to add testing framework
+# Run unit tests
+npm test
+
+# Lint all files in src (also automatically done AFTER tests are run)
+npm run lint
+
+# Clean up the dist directory
+npm run clean
+
+# Just copy the static assets
+npm run copy
+```
