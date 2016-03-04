@@ -1,6 +1,7 @@
 React-starter
 ===============
 [![Build Status](https://travis-ci.org/tehkaiyu/react-starter.svg?branch=master)](https://travis-ci.org/tehkaiyu/react-starter)
+
 Bootstrap your React app
 
 ## Usage
