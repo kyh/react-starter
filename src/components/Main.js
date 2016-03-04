@@ -6,7 +6,7 @@ import React from 'react';
 class AppComponent extends React.Component {
   render() {
     return (
-      <section>
+      <section className="index">
         <h1>Hello World.</h1>
       </section>
     );
