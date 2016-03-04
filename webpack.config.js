@@ -1,38 +1,39 @@
- var webpack = require('webpack');
- var path = require('path');
- var bower_dir = path.join(__dirname, 'client/libs');
- var node_modules_dir = path.join(__dirname, 'node_modules');
+ 'use strict';
 
- var config = {
-   addVendor: function (name, path) {
-     this.resolve.alias[name] = path;
-     this.module.noParse.push(path);
-   },
-   context: __dirname,
-   entry: {
-     app: ['webpack/hot/dev-server', './client/index.js']
-   },
-   output: {
-     publicPath: '/',
-     path: path.resolve(__dirname, process.env.NODE_ENV === 'production' ? './dist/' : './build'),
-     filename: 'bundle.js'
-   },
-   resolve: {
-     alias: {}
-   },
-   module: {
-    noParse: [],
-    loaders: [
-      { test: /\.js$/, loader: 'jsx-loader', exclude: [bower_dir, node_modules_dir]},
-      { test: /\.scss$/, loader: 'style!css!sass' },
-      { test: /\.(woff|png)$/, loader: 'url-loader?limit=100000'}
-    ]
-   },
-   plugins: [
-     new webpack.optimize.CommonsChunkPlugin('app', null, false)
-   ]
+ const path = require('path');
+ const args = require('minimist')(process.argv.slice(2));
+
+ // List of allowed environments
+ const allowedEnvs = ['dev', 'dist', 'test'];
+
+ // Set the correct environment
+ var env;
+ if(args._.length > 0 && args._.indexOf('start') !== -1) {
+   env = 'test';
+ } else if (args.env) {
+   env = args.env;
+ } else {
+   env = 'dev';
+ }
+ process.env.REACT_WEBPACK_ENV = env;
+
+ // Get available configurations
+ const configs = {
+   base: require(path.join(__dirname, 'cfg/base')),
+   dev: require(path.join(__dirname, 'cfg/dev')),
+   dist: require(path.join(__dirname, 'cfg/dist')),
+   test: require(path.join(__dirname, 'cfg/test'))
  };
 
- config.addVendor('react', path.resolve(bower_dir, 'react/react.min.js'));
+ /**
+  * Build the webpack configuration
+  * @param  {String} wantedEnv The wanted environment
+  * @return {Object} Webpack config
+  */
+ function buildConfig(wantedEnv) {
+   let isValid = wantedEnv && wantedEnv.length > 0 && allowedEnvs.indexOf(wantedEnv) !== -1;
+   let validEnv = isValid ? wantedEnv : 'dev';
+   return configs[validEnv];
+ }
 
- module.exports = config;
+ module.exports = buildConfig(env);
